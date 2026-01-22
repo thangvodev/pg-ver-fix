@@ -10,7 +10,7 @@ const Content = () => {
       <SearchBarNoPopup
         placeholder="Tìm kiếm"
         className="h-[40px] rounded-[24px]"
-        suffixIcon={<SearchIcon className="size-[15px] text-[#8E8E8E]" />}
+        suffix={<SearchIcon className="size-[15px] text-[#8E8E8E]" />}
       />
       <RewardList />
     </div>

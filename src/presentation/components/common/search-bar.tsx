@@ -22,9 +22,7 @@ type SearchBarProps = {
   onSubmit?: any;
 } & AutoCompleteProps;
 
-type SearchBarNoPopupProps = {
-  suffixIcon?: React.ReactNode;
-} & Omit<InputProps, "suffix">;
+type SearchBarNoPopupProps = InputProps;
 
 const SearchBar = React.forwardRef<SearchBarRef, SearchBarProps>(
   (
@@ -95,13 +93,7 @@ const SearchBar = React.forwardRef<SearchBarRef, SearchBarProps>(
             <Input
               placeholder={placeholder}
               prefix={prefix}
-              suffix={
-                suffixIcon ? (
-                  suffixIcon
-                ) : (
-                  <SearchNormalIcon className="size-[24px]" />
-                )
-              }
+              suffix={suffixIcon}
               className={`z-10 text-sm font-normal ${className}`}
               allowClear={allowClear as { clearIcon: React.ReactNode }}
               onClear={onClear}
@@ -118,7 +110,7 @@ const SearchBar = React.forwardRef<SearchBarRef, SearchBarProps>(
 const SearchBarNoPopup: FC<SearchBarNoPopupProps> = ({
   placeholder,
   prefix,
-  suffixIcon,
+  suffix,
   className,
   allowClear = {
     clearIcon: <CloseIcon className="size-[24px]" />,
@@ -142,9 +134,7 @@ const SearchBarNoPopup: FC<SearchBarNoPopupProps> = ({
       <Input
         placeholder={placeholder}
         prefix={prefix}
-        suffix={
-          suffixIcon ? suffixIcon : <SearchNormalIcon className="size-[24px]" />
-        }
+        suffix={suffix}
         className={`z-10 text-sm font-normal ${className}`}
         allowClear={allowClear as { clearIcon: React.ReactNode }}
         onClear={onClear}

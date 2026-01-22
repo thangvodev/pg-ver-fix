@@ -85,7 +85,7 @@ const CheckInSheet: FC<Props> = ({ children }) => {
                 placeholder="Tìm điểm bán"
                 className="h-[44px] rounded-[8px] text-xs"
                 prefix={<SearchNormalIcon className="size-[20px] text-gray5" />}
-                suffixIcon={null}
+                suffix={null}
               />
             </div>
             <Form.Item name="checkin" noStyle>
