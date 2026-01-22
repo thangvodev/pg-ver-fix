@@ -88,7 +88,7 @@ const EventDetailsSheet: FC<Props> = ({ children }) => {
               </div>
             </div>
           </div>
-          <div className="sticky bottom-0 bg-white px-[16px] pb-[24px] pt-[12px]">
+          <div className="sticky bottom-0 z-20 bg-white px-[16px] pb-[24px] pt-[12px]">
             <Button
               text={
                 <div className="text-base font-medium text-white">Đóng</div>

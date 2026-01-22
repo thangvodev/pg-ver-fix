@@ -39,7 +39,7 @@ const RewardPopup: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
           title={
             (
               <div
-                className="absolute -top-[100px] right-0"
+                className="absolute -top-[50px] right-0"
                 onClick={handleCancel}
               >
                 <CloseFilledIcon className="size-[24px] text-white" />
@@ -71,7 +71,7 @@ const RewardPopup: FC<Props> = ({ isModalOpen, setIsModalOpen }) => {
                   Chúc mừng bạn nhận được
                 </div>
                 <div className="rounded-[100px] bg-green1 px-[12px] py-[8px]">
-                  <div className="text-green8 text-xs font-medium">
+                  <div className="text-xs font-medium text-green8">
                     Vui lòng chọn 1 món quà.
                   </div>
                 </div>

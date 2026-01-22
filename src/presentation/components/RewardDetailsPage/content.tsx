@@ -12,7 +12,7 @@ const Content = () => {
     <div className="flex size-full flex-col gap-[16px]">
       <Banner status={status} />
       <RedeemForm form={form} />
-      <FloatButton status={status} />
+      <FloatButton status={status} setStatus={setStatus} />
     </div>
   );
 };

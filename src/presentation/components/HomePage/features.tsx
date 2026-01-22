@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import Checkin from "../../static/images/checkin.svg";
-import Scan from "../../static/images/checkin.svg";
-import Checkout from "../../static/images/checkout.svg";
-import History from "../../static/images/history.svg";
+import Checkin from "../../static/images/checkin.png";
+import Scan from "../../static/images/scan.png";
+import Checkout from "../../static/images/checkout.png";
+import History from "../../static/images/history.png";
 import clsx from "clsx";
 import { CheckInSheet } from "../CheckInSheet/checkin-sheet";
 import { useNavigate } from "react-router-dom";
@@ -122,7 +122,7 @@ const Feature: TFeature = ({
       <img
         src={icon}
         alt=""
-        className="absolute right-[20px] top-0 max-w-[100px] -translate-y-[12px] object-contain"
+        className="absolute right-[20px] top-0 max-h-[85px] -translate-y-[12px] object-contain"
       />
     </div>
   );

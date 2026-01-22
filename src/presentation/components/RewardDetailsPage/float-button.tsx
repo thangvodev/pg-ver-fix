@@ -1,7 +1,10 @@
 import React, { FC } from "react";
 import { Button } from "../common/button";
+import { useNavigate } from "react-router-dom";
 
-const FloatButton: TFloatButton = ({ status }) => {
+const FloatButton: TFloatButton = ({ status, setStatus }) => {
+  const navigate = useNavigate();
+
   const ButtonRender = () => {
     switch (status) {
       case "not-delivered":
@@ -15,6 +18,7 @@ const FloatButton: TFloatButton = ({ status }) => {
               background:
                 "linear-gradient(90deg, #58D795 0%, #4CBA81 31.83%, #159954 101.86%)",
             }}
+            onClick={() => setStatus("delivered")}
           />
         );
 
@@ -36,6 +40,7 @@ const FloatButton: TFloatButton = ({ status }) => {
                 </div>
               }
               className="w-full rounded-[32px] border border-greenMinimap bg-white px-[10px] py-[14px]"
+              onClick={() => navigate("/home")}
             />
           </div>
         );
@@ -46,7 +51,7 @@ const FloatButton: TFloatButton = ({ status }) => {
   };
 
   return (
-    <div className="sticky bottom-0 bg-white px-[16px] pb-[24px] pt-[12px]">
+    <div className="sticky bottom-0 z-20 bg-white px-[16px] pb-[24px] pt-[12px]">
       {ButtonRender()}
     </div>
   );
@@ -54,4 +59,5 @@ const FloatButton: TFloatButton = ({ status }) => {
 
 export { FloatButton };
 
-type TFloatButton = FC<{ status: "not-delivered" | "delivered" }>;
+type TFloatButton = FC<{ status: Status; setStatus: (status: Status) => void }>;
+type Status = "not-delivered" | "delivered";
