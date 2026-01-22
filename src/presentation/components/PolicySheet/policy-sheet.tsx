@@ -34,7 +34,7 @@ const PolicySheet: FC<Props> = ({ children }) => {
           unmountOnClose
           height={"65vh"}
           style={{
-            background: "#FFFFFF",
+            background: "#2CBC74",
             overflow: "visible",
           }}
           className="flex flex-col"
