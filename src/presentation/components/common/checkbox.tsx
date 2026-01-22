@@ -1,0 +1,143 @@
+import {
+  Checkbox as OriginalCheckbox,
+  CheckboxProps as OriginalCheckboxProps,
+  Collapse,
+  Divider,
+  ConfigProvider,
+} from "antd";
+import React, { FC, useState } from "react";
+import clsx from "clsx";
+import { CheckboxGroupProps } from "antd/es/checkbox";
+
+const Checkbox: CheckboxType = (props) => {
+  return (
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: props.color ? props.color : "#FF7B7B",
+          colorPrimaryHover: props.color ? props.color : "#FF7B7B",
+        },
+      }}
+    >
+      <OriginalCheckbox {...props} />
+    </ConfigProvider>
+  );
+};
+
+const CheckboxGroup: TCheckboxGroup = (props) => {
+  return (
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: props.color ? props.color : "#FF7B7B",
+          colorPrimaryHover: props.color ? props.color : "#FF7B7B",
+        },
+      }}
+    >
+      <OriginalCheckbox.Group {...props} />
+    </ConfigProvider>
+  );
+};
+
+Checkbox.Group = CheckboxGroup;
+
+const NestedCheckbox: FC<NestedCheckboxProps> = ({
+  defaultCheckedList,
+  option,
+}) => {
+  const [checkedList, setCheckedList] = useState<string[]>(
+    defaultCheckedList ?? [],
+  );
+  const plainOptions = option.children.map((child) => child.value);
+
+  const checkAll = plainOptions.length === checkedList.length;
+  // const indeterminate =
+  //   checkedList.length > 0 && checkedList.length < plainOptions.length;
+
+  const onInnerChange = (list: string[]) => {
+    setCheckedList(list);
+  };
+
+  const onCheckAllChange: OriginalCheckboxProps["onChange"] = (e) => {
+    setCheckedList(e.target.checked ? plainOptions : []);
+  };
+
+  return (
+    <Collapse
+      defaultActiveKey={1}
+      ghost
+      expandIconPosition="end"
+      expandIcon={({ isActive }) => (
+        <img
+          // src={ChevronBlue}
+          className={clsx("size-[20px] object-cover", {
+            "rotate-90": isActive,
+          })}
+        />
+      )}
+      items={[
+        {
+          key: 1,
+          label: (
+            <div onClick={(e) => e.stopPropagation()} className="w-fit">
+              <Checkbox
+                // indeterminate={indeterminate}
+                onChange={onCheckAllChange}
+                checked={checkAll}
+                skipGroup
+              >
+                {option.label}
+              </Checkbox>
+            </div>
+          ),
+          children: (
+            <Checkbox.Group
+              value={checkedList}
+              className="w-full"
+              onChange={onInnerChange}
+            >
+              <div className="flex w-full flex-col gap-[12px]">
+                <Divider className="mb-0 mt-[12px]" />
+                {option.children.map((item, index) => (
+                  <React.Fragment key={index}>
+                    <Checkbox
+                      value={item.value}
+                      className="custom-checkbox ml-[12px]"
+                    >
+                      {item.label}
+                    </Checkbox>
+                    {index < option.children.length - 1 && (
+                      <Divider className="m-0" />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </Checkbox.Group>
+          ),
+          styles: { header: { padding: 0 }, body: { padding: 0 } },
+        },
+      ]}
+    />
+  );
+};
+
+export { NestedCheckbox, Checkbox };
+
+type CheckboxType = FC<OriginalCheckboxProps & { color?: string }> & {
+  Group: TCheckboxGroup;
+};
+
+type TCheckboxGroup = FC<CheckboxGroupProps & { color?: string }>;
+
+type NestedCheckboxProps = {
+  value?: any;
+  onChange?: (value: any) => void;
+  defaultCheckedList?: string[];
+  option: {
+    label: React.ReactNode;
+    children: {
+      label: React.ReactNode;
+      value: any;
+    }[];
+  };
+};

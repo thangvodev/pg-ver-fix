@@ -1,0 +1,137 @@
+// Modal
+.zaui-modal-content-main {
+  overflow-y: visible !important;
+  padding: 0 !important;
+  .zaui-modal-content-title {
+    margin: 0 !important;
+  }
+}
+.bottom-modal {
+  .zaui-modal-wrapper {
+    align-items: unset !important;
+    top: unset !important;
+    width: 100%;
+    height: fit-content;
+    overflow: visible !important;
+    .zaui-sheet-content {
+      border-top-left-radius: 16px !important;
+      border-top-right-radius: 16px !important;
+    }
+    .zaui-modal-content {
+      max-height: max-content;
+    }
+  }
+}
+.zaui-modal-wrapper {
+  .zaui-sheet-content {
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+    .zaui-sheet-content-header {
+      z-index: 10;
+    }
+  }
+}
+
+// Dropdown
+.service-filter-dropdown.zaui-input-affix-wrapper {
+  margin: 0;
+  input {
+    font-size: 12px !important;
+    height: 26px;
+    padding-right: 0;
+  }
+}
+
+// Sheet {
+.zaui-sheet {
+  .zaui-sheet-content-header {
+    height: fit-content !important;
+  }
+}
+
+// Picker {
+.zaui-sheet-content {
+  border-top-left-radius: 24px !important;
+  border-top-right-radius: 24px !important;
+  .zaui-picker-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+    padding: 0 !important;
+    flex: 1 1 0%;
+    .zaui-picker-header {
+      margin: 0;
+      padding: 0 16px;
+      .zaui-picker-title {
+        font-size: 20px;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 12px;
+        display: flex;
+        align-items: end;
+        justify-content: center;
+      }
+    }
+    .zaui-picker-inner {
+      flex: 1 1 0%;
+    }
+    .zaui-picker-inner.picker-type-time {
+      padding: 0 50px;
+      .zaui-picker-column {
+        height: 156px;
+        position: relative;
+        margin: 0;
+        .zaui-picker-scroller {
+          margin-top: -52px;
+          .zaui-picker-item {
+            border-radius: 0;
+            transition: background-color 0.2s ease-out;
+            transition: color 0.05s ease-in-out;
+            font-size: 20px;
+            font-weight: 600;
+            color: transparent;
+          }
+          .zaui-picker-item-selected {
+            color: #101010;
+            background-color: white;
+          }
+        }
+      }
+    }
+    .zaui-picker-inner.picker-type-date {
+      padding: 0 20px;
+      .zaui-picker-column {
+        height: 156px;
+        position: relative;
+        margin: 0;
+        .zaui-picker-scroller {
+          margin-top: -52px;
+          .zaui-picker-item {
+            border-radius: 0;
+            transition: background-color 0.2s ease-out;
+            transition: color 0.05s ease-in-out;
+            font-size: 20px;
+            font-weight: 600;
+          }
+          .zaui-picker-item-selected {
+            color: #101010;
+            background-color: #f5faf9;
+          }
+        }
+      }
+    }
+    .zaui-picker-action {
+      margin: 0;
+      padding: 12px 16px 20px;
+      button {
+        box-shadow: 0px 4px 24px 0px #7d6a6a14;
+        background: #4cba81;
+        border-radius: 12px;
+        span {
+          font-size: 16px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
