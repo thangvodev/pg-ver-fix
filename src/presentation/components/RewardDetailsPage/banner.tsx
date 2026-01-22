@@ -1,7 +1,8 @@
 import React, { FC } from "react";
 import BannerImg from "../../static/images/banner-reward.png";
 import LogoImg from "../../static/images/pizzahut-logo.png";
-import { Status } from "./status";
+import { DeliveryStatus } from "./status";
+import { EventDetailsSheet } from "./event-details-sheet";
 
 const Banner: TBanner = ({ status }) => {
   return (
@@ -15,14 +16,19 @@ const Banner: TBanner = ({ status }) => {
       </div>
       <div className="flex flex-col items-center gap-[4px]">
         <div className="text-lg font-medium">Sắn quà khủng cùng Domino</div>
-        <div className="text-sm font-medium text-blue5">
-          Chi tiết chương trình
-        </div>
+        <EventDetailsSheet>
+          {({ open }) => (
+            <div className="text-sm font-medium text-blue5" onClick={open}>
+              Chi tiết chương trình
+            </div>
+          )}
+        </EventDetailsSheet>
+
         <div className="flex items-center gap-[12px]">
           <div className="text-sm font-normal text-gray7">
             10:30, 31/12/2025
           </div>
-          <Status status={status} />
+          <DeliveryStatus status={status} />
         </div>
       </div>
     </div>

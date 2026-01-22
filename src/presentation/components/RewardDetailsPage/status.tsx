@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-const Status: TStatus = ({ status }) => {
+const DeliveryStatus: TDeliveryStatus = ({ status }) => {
   switch (status) {
     case "not-delivered":
       return (
@@ -25,6 +25,22 @@ const Status: TStatus = ({ status }) => {
   }
 };
 
-export { Status };
+const EventStatus: TEventStatus = ({ status }) => {
+  switch (status) {
+    case "ongoing":
+      return (
+        <div className="rounded-[24px] bg-infor1 px-[8px] py-[4px]">
+          <div className="text-[11px] font-medium text-secondary4">
+            Đang diễn ra
+          </div>
+        </div>
+      );
+    default:
+      return null;
+  }
+};
 
-type TStatus = FC<{ status: "not-delivered" | "delivered" }>;
+export { DeliveryStatus, EventStatus };
+
+type TDeliveryStatus = FC<{ status: "not-delivered" | "delivered" }>;
+type TEventStatus = FC<{ status: "ongoing" }>;
