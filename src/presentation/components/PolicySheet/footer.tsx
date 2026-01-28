@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import PolicyFooter from "../../static/images/policy-footer.svg";
 import { Button } from "../common/button";
 import { Checkbox } from "../common/checkbox";
 import { CodeSheet } from "../CodeSheet/code-sheet";
+import { createUserRepository } from "../../../data/repositories/UserRepositoryImpl";
+import { updatePhoneNameUseCase } from "../../../core/usecases/updatePhoneNameUseCase";
+import { createZUserRepository } from "../../../data/repositories/ZUserRepositoryImpl";
 
 const Footer = () => {
+  const [checked, setChecked] = useState(false);
+  const userRepository = createUserRepository();
+  const zuserRepository = createZUserRepository();
+  const updatePhoneName = updatePhoneNameUseCase(
+    userRepository,
+    zuserRepository,
+  );
+
   return (
     <div className="relative z-10 -mt-[10px] flex h-[133px] items-center justify-center">
       <img
@@ -21,6 +32,8 @@ const Footer = () => {
               tư (Nghị định số 13/2023/NĐ - CP)
             </div>
           }
+          checked={checked}
+          onChange={() => setChecked(!checked)}
         />
         <CodeSheet>
           {({ open }) => (
@@ -35,7 +48,12 @@ const Footer = () => {
                 boxShadow: "0px 4px 12px 0px #0000001F",
                 border: "2px solid #57F8A6",
               }}
-              onClick={open}
+              onClick={() => {
+                updatePhoneName()
+                  .then(() => open())
+                  .catch(() => {});
+              }}
+              disabled={!checked}
             />
           )}
         </CodeSheet>

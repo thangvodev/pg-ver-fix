@@ -1,6 +1,8 @@
+import { Policy } from "../entities/Policy";
 import { User } from "../entities/User";
 
 export interface IUserRepository {
-  getUser(id: string): Promise<User>;
-  login(username: string, password: string): Promise<User>;
+  login(payload: any): Promise<User>;
+  getPolicy(payload: any): Promise<Policy>;
+  updatePhoneName(payload: any): Promise<any>;
 }

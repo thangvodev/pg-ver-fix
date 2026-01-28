@@ -1,12 +1,26 @@
 import { CloseCircleFilled } from "@ant-design/icons";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Sheet } from "zmp-ui";
 import { Policy } from "./policy";
 import { Footer } from "./footer";
+import { createUserRepository } from "../../../data/repositories/UserRepositoryImpl";
+import { getPolicyUseCase } from "../../../core/usecases/getPolicyUseCase";
 
 const PolicySheet: FC<Props> = ({ children }) => {
   const [visible, setVisible] = useState<boolean>(false);
+  const [policy, setPolicy] = useState();
+  const userRepository = createUserRepository();
+  const getPolicy = getPolicyUseCase(userRepository);
+
+  useEffect(() => {
+    async function initPolicy() {
+      const data = await getPolicy();
+      setPolicy(data.result);
+    }
+
+    initPolicy();
+  }, []);
 
   return (
     <>
@@ -39,7 +53,7 @@ const PolicySheet: FC<Props> = ({ children }) => {
           }}
           className="flex flex-col"
         >
-          <Policy />
+          <Policy policy={policy} />
           <Footer />
         </Sheet>,
         document.body,
