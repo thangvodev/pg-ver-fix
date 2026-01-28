@@ -69,7 +69,7 @@ const CheckInSheet: FC<Props> = ({ children }) => {
           mask
           handler={false}
           unmountOnClose
-          height={"90vh"}
+          height={"85vh"}
           style={{
             background: "#FFFFFF",
             overflow: "visible",
@@ -94,8 +94,8 @@ const CheckInSheet: FC<Props> = ({ children }) => {
                 render={(item) => (
                   <div className="flex items-center justify-between px-[16px] py-[10px]">
                     <div className="flex flex-col gap-[4px]">
-                      <div className="text-base font-medium">{item?.name}</div>
-                      <div className="text-sm font-normal">{item?.address}</div>
+                      <div className="text-base font-medium text-[#101010]">{item?.name}</div>
+                      <div className="text-sm font-normal text-[#101010]">{item?.address}</div>
                     </div>
                     <div className="text-sm font-normal text-[#EF3E27]">
                       {item?.distance}
@@ -105,8 +105,8 @@ const CheckInSheet: FC<Props> = ({ children }) => {
                 activeRender={(item) => (
                   <div className="mx-[8px] flex items-center justify-between rounded-[12px] border border-[#2CBC74] px-[14px] py-[10px]">
                     <div className="flex flex-col gap-[4px]">
-                      <div className="text-base font-medium">{item?.name}</div>
-                      <div className="text-sm font-normal">{item?.address}</div>
+                      <div className="text-base font-medium text-[#101010]">{item?.name}</div>
+                      <div className="text-sm font-normal text-[#101010]">{item?.address}</div>
                     </div>
                     <div className="flex items-center gap-[8px]">
                       <div className="text-sm font-normal text-[#EF3E27]">

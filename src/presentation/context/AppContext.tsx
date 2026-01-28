@@ -21,6 +21,8 @@ interface IAppContext {
   setLoading: React.Dispatch<React.SetStateAction<ILoading>>;
   user: IUser | null;
   setUser: React.Dispatch<React.SetStateAction<IUser | null>>;
+  isCheckInDone: boolean;
+  setIsCheckInDone: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const initializeLoadingState = (states: typeof LoadingState): ILoading => {
@@ -35,6 +37,8 @@ export const AppContext = createContext<IAppContext>({
   setLoading: () => {},
   user: null,
   setUser: () => {},
+  isCheckInDone: false,
+  setIsCheckInDone: () => {},
 });
 
 export const AppProvider = ({ children }) => {
@@ -43,7 +47,7 @@ export const AppProvider = ({ children }) => {
   );
 
   const [user, setUser] = useState<IUser | null>(null);
-
+  const [isCheckInDone, setIsCheckInDone] = useState<boolean>(false);
   return (
     <AppContext.Provider
       value={{
@@ -51,6 +55,8 @@ export const AppProvider = ({ children }) => {
         setLoading,
         user,
         setUser,
+        isCheckInDone,
+        setIsCheckInDone,
       }}
     >
       {loading?.user ? (

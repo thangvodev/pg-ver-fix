@@ -3,6 +3,8 @@ import { Form } from "../common/form";
 import { Input } from "antd";
 import { Button } from "../common/button";
 import { useNavigate } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeOutlined } from "@ant-design/icons";
+import Eye from "../../static/icons/eye.svg";
 
 const CodeForm = () => {
   const navigate = useNavigate();
@@ -14,7 +16,7 @@ const CodeForm = () => {
 
   return (
     <div className="flex flex-col gap-[32px]">
-      <Form form={form} className="flex-1 px-[16px]" onFinish={handleFinish}>
+      <Form form={form} className="flex-1 " onFinish={handleFinish}>
         <Form.Item
           name="code"
           rules={[{ required: true, message: "Vui lòng nhập mã bảo mật" }]}
@@ -23,10 +25,17 @@ const CodeForm = () => {
             placeholder="Nhập mã bảo mật"
             className="h-[48px] rounded-[8px]"
             style={{ boxShadow: "0px 4px 24px 0px #BABABA1F" }}
+            iconRender={(visible) =>
+            visible ? (
+              <EyeOutlined style={{ fontSize: 24 }} />
+            ) : (
+              <EyeInvisibleOutlined style={{ fontSize: 24 }} />
+            )
+  }
           />
         </Form.Item>
       </Form>
-      <div className="bg-white px-[16px] pb-[24px] pt-[12px]">
+      <div className="bg-white px-[16px] pb-[24px] ">
         <Button
           text={
             <div className="text-base font-medium text-white">Xác nhận</div>

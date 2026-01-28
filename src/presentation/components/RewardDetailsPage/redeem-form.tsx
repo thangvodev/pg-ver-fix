@@ -5,6 +5,7 @@ import { ActivityUpload } from "./activity-upload";
 import { UploadImage } from "../common/image-upload";
 import { FormInstance, Input } from "antd";
 import { CustomerInfo } from "./customer-info";
+import ClearIcon from "../../static/icons/close-circle.png";
 
 const RedeemForm: TRedeemForm = ({ form }) => {
   const [images, setImages] = useState<UploadImage[]>([]);
@@ -39,6 +40,9 @@ const RedeemForm: TRedeemForm = ({ form }) => {
           autoSize={{ minRows: 5, maxRows: 7 }}
           className="bg-white"
           style={{ boxShadow: "0px 4px 24px 0px #BABABA1F" }}
+          allowClear={{
+            clearIcon: <img src={ClearIcon} className="size-[20px]" />,
+          }}
         />
       </Form.Item>
     </Form>

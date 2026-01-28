@@ -32,14 +32,14 @@ const CodeSheet: FC<Props> = ({ children }) => {
           mask
           handler={false}
           unmountOnClose
-          height={"90vh"}
+          height={"85vh"}
           style={{
             background: "#FFFFFF",
             overflow: "visible",
           }}
           className="font-manrope"
         >
-          <div className="flex size-full flex-col justify-center gap-[24px]">
+          <div className="flex size-full flex-col gap-[24px] mt-16  px-[16px]">
             <Banner />
             <CodeForm />
           </div>

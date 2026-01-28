@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import Checkin from "../../static/images/checkin.png";
 import Scan from "../../static/images/scan.png";
 import Checkout from "../../static/images/checkout.png";
@@ -6,27 +6,37 @@ import History from "../../static/images/history.png";
 import clsx from "clsx";
 import { CheckInSheet } from "../CheckInSheet/checkin-sheet";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../context/AppContext";
+import { RewardPopup } from "../ScanQRPage/reward-popup";
 
 const Features = () => {
   const navigate = useNavigate();
+  const {isCheckInDone} = React.useContext(AppContext);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
+
 
   return (
     <div className="flex flex-col gap-[12px]">
-      <CheckInSheet>
-        {({ open }) => (
-          <Feature
-            title="Check-in"
-            description={
-              <div className="text-[11px] font-normal text-gray7">
-                Checkin để bắt đầu một ngày làm việc
-              </div>
-            }
-            icon={Checkin}
-            background="linear-gradient(180deg, #FDFFF5 0%, #D8FFE2 100%)"
-            onClick={open}
-          />
-        )}
-      </CheckInSheet>
+      <RewardPopup isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+    
+      {!isCheckInDone &&      
+        <CheckInSheet>
+          {({ open }) => (
+            <Feature
+              title="Check-in"
+              description={
+                <div className="text-[11px] font-normal text-gray7">
+                  Checkin để bắt đầu một ngày làm việc
+                </div>
+              }
+              icon={Checkin}
+              background="linear-gradient(180deg, #FDFFF5 0%, #D8FFE2 100%)"
+              onClick={open}
+            />
+          )}
+        </CheckInSheet>
+      }
 
       <Feature
         title="Scan mã QR"
@@ -37,7 +47,13 @@ const Features = () => {
         }
         icon={Scan}
         background="linear-gradient(93.54deg, rgba(110, 255, 238, 0.16) 0.3%, rgba(0, 183, 255, 0.34) 99.7%)"
-        onClick={() => navigate("/scan")}
+        onClick={() => {
+          if(!isCheckInDone) return;
+          setIsModalOpen(true);
+          // navigate("/scan")
+        }}
+        disabled={!isCheckInDone}
+        
       />
       <Feature
         title="Lịch sử"
@@ -48,31 +64,37 @@ const Features = () => {
         }
         icon={History}
         background="linear-gradient(93.54deg, rgba(255, 235, 211, 0.62) 0.3%, rgba(255, 225, 57, 0.5) 99.7%)"
-        onClick={() => navigate("/history")}
+        onClick={() => {
+          if(!isCheckInDone) return;
+          navigate("/history")
+        }}
+        disabled={!isCheckInDone}
       />
-      <Feature
-        title="Checkout"
-        description={
-          <div className="flex flex-col gap-[4px]">
-            <div className="flex items-center gap-[4px]">
-              <div className="text-[11px] font-normal text-gray7">
-                Đã checkin lúc:
-              </div>
-              <div className="rounded-[12px] border border-red5 bg-white px-[4px] py-[2px]">
-                <div className="text-[11px] font-normal text-red5">
-                  12:00, 25/12/2025
+      {isCheckInDone &&
+        <Feature
+          title="Checkout"
+          description={
+            <div className="flex flex-col gap-[4px]">
+              <div className="flex items-center gap-[4px]">
+                <div className="text-[11px] font-normal text-gray7">
+                  Đã checkin lúc:
+                </div>
+                <div className="rounded-[12px] border border-red5 bg-white px-[4px] py-[2px]">
+                  <div className="text-[11px] font-normal text-red5">
+                    12:00, 25/12/2025
+                  </div>
                 </div>
               </div>
+              <div className="text-[11px] font-normal text-gray7">
+                Tại điểm: 123 Lý Thường Kiệt, quận 10
+              </div>
             </div>
-            <div className="text-[11px] font-normal text-gray7">
-              Tại điểm: 123 Lý Thường Kiệt, quận 10
-            </div>
-          </div>
-        }
-        icon={Checkout}
-        background="linear-gradient(180deg, rgba(255, 220, 202, 0.18) 0%, #FFDCD8 100%)"
-        onClick={() => navigate("/checkout")}
-      />
+          }
+          icon={Checkout}
+          background="linear-gradient(180deg, rgba(255, 220, 202, 0.18) 0%, #FFDCD8 100%)"
+          onClick={() => navigate("/checkout")}
+        />
+      }
     </div>
   );
 };

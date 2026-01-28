@@ -7,7 +7,7 @@ import {
 } from "antd";
 import React, { FC } from "react";
 import CloseIcon from "../icons/CloseIcon";
-import SearchNormalIcon from "../icons/SearchNormalIcon";
+import ClearIcon from "../../static/icons/close-circle.png";
 export interface SearchBarRef {
   dropdownHeight: number | null;
   measureDropdownHeight: () => void;
@@ -36,7 +36,7 @@ const SearchBar = React.forwardRef<SearchBarRef, SearchBarProps>(
       suffixIcon,
       prefix,
       allowClear = {
-        clearIcon: <CloseIcon className="size-[24px]" />,
+        clearIcon: <img src={ClearIcon} className="size-[20px]" />,
       },
       onSearch,
       onClear,
@@ -113,7 +113,7 @@ const SearchBarNoPopup: FC<SearchBarNoPopupProps> = ({
   suffix,
   className,
   allowClear = {
-    clearIcon: <CloseIcon className="size-[24px]" />,
+    clearIcon: <img src={ClearIcon} className="size-[20px]" />,
   },
   onClear,
   value,

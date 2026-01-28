@@ -31,7 +31,7 @@ const CheckInForm = () => {
           labelFontSize={18}
           labelCol={{ className: "!p-0" }}
         >
-          <DatePickerZUI
+          {/* <DatePickerZUI
             hourFormat="24h"
             prefix={
               <ClockCircleFilled className="pl-[12px] text-[22px] text-gray4" />
@@ -46,7 +46,11 @@ const CheckInForm = () => {
               return value.format("H:mm[, ]DD/MM/YYYY");
             }}
             pickType="both"
-          />
+          /> */}
+          <div className="bg-[#FFFFFF] border-gray2 border rounded-[8px] p-3 flex items-center">
+            <ClockCircleFilled className="] text-[22px] text-gray4" />
+            <span className="ml-2 text-sm text-[#101010]">09:32, 12/01/2026</span>
+          </div>
         </Form.Item>
       </div>
     </Form>

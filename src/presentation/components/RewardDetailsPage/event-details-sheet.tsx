@@ -39,7 +39,7 @@ const EventDetailsSheet: FC<Props> = ({ children }) => {
           mask
           handler={false}
           unmountOnClose
-          height={"90vh"}
+          height={"85vh"}
           style={{
             background: "#FFFFFF",
             overflow: "visible",

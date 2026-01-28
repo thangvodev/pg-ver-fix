@@ -63,6 +63,7 @@ const ImageUpload = () => {
       listType="picture"
       defaultFileList={fileList}
       itemRender={customItemRender}
+      className="custom-upload-dragger"
     >
       <div className="flex flex-col items-center gap-[12px] px-[24px] py-[12px]">
         <img

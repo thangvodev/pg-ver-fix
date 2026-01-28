@@ -9,7 +9,7 @@ const CheckInPage = () => {
         title={
           (
             <div className="justify-left flex w-[calc(100%-80px)]">
-              <div className="text-base font-medium">Chụp ảnh checkin</div>
+              <div className="text-base font-medium text-[#101010]">Chụp ảnh checkin</div>
             </div>
           ) as unknown as string
         }

@@ -4,6 +4,7 @@ import { RewardItem } from "./reward-item";
 import ClockFilledIcon from "../icons/ClockFilledIcon";
 import { Divider } from "antd";
 import { formatCurrency } from "../../utils/helpers";
+import { useNavigate } from "react-router";
 
 const RewardList = () => {
   return (
@@ -17,10 +18,14 @@ const RewardList = () => {
 };
 
 const RewardListItem: TRewardListItem = ({ status, price }) => {
+  const navigate = useNavigate();
   return (
     <div
       className="flex flex-col gap-[8px] rounded-[12px] bg-white px-[12px] py-[10px]"
       style={{ boxShadow: "0px 4px 24px 0px #BABABA1F" }}
+      onClick={()=> {
+        navigate("/reward/1");
+      }}
     >
       <div className="flex flex-col gap-[12px]">
         <div className="flex flex-col gap-[8px]">

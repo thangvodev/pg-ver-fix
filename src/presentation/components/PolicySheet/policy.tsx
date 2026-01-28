@@ -27,8 +27,8 @@ const Policy = () => {
         alt=""
         className="absolute top-0 w-full object-cover"
       />
-      <div className="relative z-10 mb-[10px] mt-[40px] flex-1 overflow-auto font-manrope">
-        <div className="flex flex-col items-center justify-center gap-[14px] px-[46px]">
+      <div className="relative z-10 mb-[10px] mt-[40px] flex-1 overflow-auto font-manrope rule mr-[10px]">
+        <div className="flex flex-col items-center justify-center gap-[14px] px-[46px] ">
           <div className="text-lg font-semibold text-[#065710]">
             Điều khoản & Thể lệ
           </div>

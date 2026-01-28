@@ -6,3 +6,18 @@
 * {
   line-height: 120%;
 }
+
+
+.rule::-webkit-scrollbar {
+  width: 4px;
+  height: 8px;
+}
+
+.rule::-webkit-scrollbar-track {
+  background: #CFF3D3;
+}
+
+.rule::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background: #52CE92;
+}

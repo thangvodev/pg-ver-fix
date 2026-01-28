@@ -6,7 +6,7 @@ const Banner = () => {
     <div className="flex flex-col items-center gap-[12px]">
       <img src={CodeLock} alt="" className="size-[100px]" />
       <div className="text-xl font-semibold">Nhập mã bảo mật</div>
-      <div className="text-base font-normal text-gray6">
+      <div className="text-base text-center font-normal text-gray6">
         Vui lòng nhập mã bảo mật để truy cập ứng dụng
       </div>
     </div>
