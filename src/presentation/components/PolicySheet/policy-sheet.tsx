@@ -5,7 +5,7 @@ import { Sheet } from "zmp-ui";
 import { Policy } from "./policy";
 import { Footer } from "./footer";
 import { createUserRepository } from "../../../data/repositories/UserRepositoryImpl";
-import { getPolicyUseCase } from "../../../core/usecases/getPolicyUseCase";
+import { getPolicyUseCase } from "../../../core/usecases/GetPolicyUseCase";
 
 const PolicySheet: FC<Props> = ({ children }) => {
   const [visible, setVisible] = useState<boolean>(false);

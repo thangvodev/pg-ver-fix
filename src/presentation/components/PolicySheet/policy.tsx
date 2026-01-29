@@ -16,7 +16,7 @@ const Policy: TPolicy = ({ policy }) => {
           <div className="text-lg font-semibold text-[#065710]">
             Điều khoản & Thể lệ
           </div>
-          {htmlParse(policy?.description)}
+          <div>{htmlParse(policy?.description)}</div>
         </div>
       </div>
     </div>

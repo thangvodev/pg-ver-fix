@@ -4,7 +4,7 @@ import { Button } from "../common/button";
 import { Checkbox } from "../common/checkbox";
 import { CodeSheet } from "../CodeSheet/code-sheet";
 import { createUserRepository } from "../../../data/repositories/UserRepositoryImpl";
-import { updatePhoneNameUseCase } from "../../../core/usecases/updatePhoneNameUseCase";
+import { updatePhoneNameUseCase } from "../../../core/usecases/UpdatePhoneNameUseCase";
 import { createZUserRepository } from "../../../data/repositories/ZUserRepositoryImpl";
 
 const Footer = () => {

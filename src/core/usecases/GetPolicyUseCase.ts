@@ -5,7 +5,7 @@ export const getPolicyUseCase = (userRepository: IUserRepository) => {
     const params = {
       tenant_id: import.meta.env.VITE_TENANT_ID,
       customapp_id: import.meta.env.VITE_CUSTOM_APP_ID,
-      key: "customapp.rule.aboutus",
+      key: "config.rule.thele",
       lang_id: 1,
     };
 
