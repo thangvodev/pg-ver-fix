@@ -2,7 +2,7 @@ import { CloseCircleFilled } from "@ant-design/icons";
 import React, { FC, useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { Sheet } from "zmp-ui";
-import { Policy } from "./policy";
+import { PolicyContainer } from "./policy";
 import { Footer } from "./footer";
 import { createUserRepository } from "../../../data/repositories/UserRepositoryImpl";
 import { getPolicyUseCase } from "../../../core/usecases/GetPolicyUseCase";
@@ -53,7 +53,7 @@ const PolicySheet: FC<Props> = ({ children }) => {
           }}
           className="flex flex-col"
         >
-          <Policy policy={policy} />
+          <PolicyContainer policy={policy} />
           <Footer />
         </Sheet>,
         document.body,

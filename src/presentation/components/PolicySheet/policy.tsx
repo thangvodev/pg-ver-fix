@@ -3,7 +3,7 @@ import PolicyBg from "../../static/images/policy-bg.svg";
 import { Policy } from "../../../core/entities/Policy";
 import { htmlParse } from "../../utils/htmlParser";
 
-const Policy: TPolicy = ({ policy }) => {
+const PolicyContainer: TPolicy = ({ policy }) => {
   return (
     <div className="relative -mt-[30px] flex flex-1 overflow-hidden">
       <img
@@ -22,7 +22,7 @@ const Policy: TPolicy = ({ policy }) => {
     </div>
   );
 };
-export { Policy };
+export { PolicyContainer };
 
 type TPolicy = FC<{
   policy?: Policy;
